@@ -15,8 +15,8 @@ output: "cceee"
 
 Test Cases:
 -
-Test.describe("Fixed tests",function() {
-  Test.it("should return only duplicate characters",function() {
+    Test.describe("Fixed tests",function() {
+     Test.it("should return only duplicate characters",function() {
     Test.assertEquals(onlyDuplicates('plastic'),  '')
     Test.assertEquals(onlyDuplicates('hill'), 'll')
     Test.assertEquals(onlyDuplicates('remove'), 'ee')
@@ -67,29 +67,29 @@ Test.describe("Fixed tests",function() {
     Test.assertEquals(onlyDuplicates('toothbrush'), 'toothh')
     Test.assertEquals(onlyDuplicates('existence'),  'eee')
     Test.assertEquals(onlyDuplicates('12314256aaeff'),  '1212aaff')  
-  })
-})
+      })
+    })
 
-function onlyDuplicatesSolution5 (str) {
-  return str
-    .split('')
-    .filter(char => str.indexOf(char) !== str.lastIndexOf(char))
-    .join('')
-}
+    function onlyDuplicatesSolution5 (str) {
+      return str
+        .split('')
+        .filter(char => str.indexOf(char) !== str.lastIndexOf(char))
+        .join('')
+    }
 
-Test.describe("Random tests",function() {
-  Test.it("should return only duplicate characters",function() {
-    var letters = "abcdeeeeeefffffffggggggghhhhhhhh";
-    var s, randomPosition;
-    for (var j=0; j<50; j++) {
-      s = "";
-      for (var i=0; i<10; i++) {
-        s += letters[Math.floor(letters.length * Math.random())];
-      }
-      //Adding a single letter at a random position just in case
-      randomPosition = Math.floor(11 * Math.random());
-      s = s.slice(0, randomPosition) + "i" + s.slice(randomPosition)
-      Test.assertEquals(onlyDuplicates(s),  onlyDuplicatesSolution5(s)) 
-    }  
-  })
-})
+    Test.describe("Random tests",function() {
+      Test.it("should return only duplicate characters",function() {
+        var letters = "abcdeeeeeefffffffggggggghhhhhhhh";
+        var s, randomPosition;
+        for (var j=0; j<50; j++) {
+          s = "";
+          for (var i=0; i<10; i++) {
+            s += letters[Math.floor(letters.length * Math.random())];
+          }
+          //Adding a single letter at a random position just in case
+          randomPosition = Math.floor(11 * Math.random());
+          s = s.slice(0, randomPosition) + "i" + s.slice(randomPosition)
+          Test.assertEquals(onlyDuplicates(s),  onlyDuplicatesSolution5(s)) 
+        }  
+      })
+    })
